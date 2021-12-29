@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useState } from 'react';
 import "./SearchBar.style.css";
+import GithubContext from '../../context/github/githubContext';
+import AlertContext from '../../context/alert/AlertContext';
 
-const SearchBar = ({ searchUsers, setAlert }) => {
+const SearchBar = () => {
+    const githubContext = useContext(GithubContext);
+    const alertContext = useContext(AlertContext);
+    
     const [search, setSearch] = useState("");
 
     const handleChange = e => setSearch(e.target.value);
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (search === '') setAlert('Please enter something!', 'danger');
+        if (search === '') alertContext.setAlert('Please enter something!', 'danger');
         else {
-            searchUsers(search);
+            githubContext.searchUsers(search);
             setSearch("");
         }
     }
@@ -19,16 +23,11 @@ const SearchBar = ({ searchUsers, setAlert }) => {
     return (
         <div className='search-bar'>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="search" id="search" className="form__input" placeholder='search users' value={search} onChange={handleChange} />
+                <input type="text" name="search" id="search" className="form__input" placeholder='search users' value={search} onChange={handleChange} autoComplete="off"/>
             </form>
-            <i className="fas fa-lg fa-search"></i>
+            <i className="fas fa-lg fa-search" onClick={handleSubmit}></i>
         </div>
     )
-}
-
-SearchBar.propTypes = {
-    searchUsers: PropTypes.func.isRequired,
-    setAlert: PropTypes.func.isRequired,
 }
 
 export default SearchBar

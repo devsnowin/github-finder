@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types';
+import React, { useContext, useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader';
 import User from '../userCard/UserCard.component'
+import GithubContext from '../../context/github/githubContext';
 import "./UserCards.style.css"
 
-const UserCards = ({ users, loading }) => {
+const UserCards = () => {
+
+    const githubContext = useContext(GithubContext);
+    const { loading, users } = githubContext;
+    
     if (loading) return <PulseLoader css={loaderStyle} />
     else if (users) {
         return (
@@ -22,11 +26,6 @@ const loaderStyle = {
     left: '50%',
     transform: 'translate(-50%, 50%)',
     color: 'rgb(48, 40, 73)'
-}
-
-UserCards.propTypes = {
-    users: PropTypes.array.isRequired,
-    loading:PropTypes.bool.isRequired,
 }
 
 export default UserCards;

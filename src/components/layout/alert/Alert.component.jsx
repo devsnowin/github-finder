@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AlertContext from '../../../context/alert/AlertContext';
 import "./Alert.style.css";
 
-const Alert = ({ alert }) => {
+const Alert = () => {
+
+    const alertContext = useContext(AlertContext);
+
+    const { alert } = alertContext;
     
     return (
         alert !== null && (

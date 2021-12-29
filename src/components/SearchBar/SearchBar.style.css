@@ -17,6 +17,7 @@
   height: 5vh;
   border: 0;
   outline: none;
+  user-select: none;
 }
 
 .form__input::placeholder {

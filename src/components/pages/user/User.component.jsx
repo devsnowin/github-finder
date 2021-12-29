@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 import { Repos } from '../../repos/Repos.component';
-import PropTypes from 'prop-types';
+import GithubContext from '../../../context/github/githubContext';
 import "./User.style.css"
 
-const User = ({ user, loading, getUser, getUserRepos, repos}) => {
+const User = () => {
+  const githubContext = useContext(GithubContext);
+
+  const { getUser, loading, user, repos, getUserRepos } = githubContext;
+
+  // Get the current params
   const { username } = useParams();
   
   useEffect(() => {
@@ -29,12 +34,6 @@ const User = ({ user, loading, getUser, getUserRepos, repos}) => {
     hireable,
     company,
   } = user;
-
-  let prefix = 'http://';
-  // if (blog.substr(0, prefix.length) !== prefix)
-  // {
-  //     blog = prefix + blog;
-  // }
   
   const loaderStyle = {
     position: 'absolute',
@@ -73,7 +72,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos}) => {
             <p>Username: { name }</p>
             <p>Company: { company }</p>
             <p>Website: <a href={
-              (!/^https?:\/\//i.test(blog)) ? 'http://' + blog : blog
+              (!/^https?:\/\//i.test(blog)) ? 'https://' + blog : blog
             } target="_blank">{ blog }</a></p>
           </div>
         </div>
@@ -93,13 +92,4 @@ const User = ({ user, loading, getUser, getUserRepos, repos}) => {
   }
 }
 
-User.propTypes = {
-  loading: PropTypes.bool,
-  user: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
-  repos: PropTypes.array.isRequired,
-}
-
 export default User
-

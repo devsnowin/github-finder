@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import "./UserCard.style.css";
 
-const UserCard = ({user: {login, avatar_url, html_url}}) => { 
+const UserCard = ({user: {login, avatar_url}}) => { 
 
     return (
         <div className="card">

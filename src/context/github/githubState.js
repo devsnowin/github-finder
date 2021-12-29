@@ -9,16 +9,16 @@ import {
     GET_REPOS
 } from '../types';
 
-let CLIENT_ID;
-let CLIENT_SECRET;
+let GITHUB_CLIENT_ID;
+let GITHUB_CLIENT_SECRET;
 
 if (process.env.NODE_ENV !== 'production') {
-    CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-    CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
+    GITHUB_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+    GITHUB_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 }
 else {
-    CLIENT_ID = process.env.CLIENT_ID;
-    CLIENT_SECRET = process.env.CLIENT_SECRET;
+    GITHUB_CLIENT_ID = process.env.CLIENT_ID;
+    GITHUB_CLIENT_SECRET = process.env.CLIENT_SECRET;
 }
 
 const GithubState = props => {    
@@ -35,7 +35,7 @@ const GithubState = props => {
     const searchUsers = async text => {
         setLoading();
 
-        const GITHUB_API = `https://api.github.com/search/users?q=${text}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+        const GITHUB_API = `https://api.github.com/search/users?q=${text}&client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}`;
         const res = await axios.get(GITHUB_API);
         
         dispatch({
@@ -48,7 +48,7 @@ const GithubState = props => {
     const getUser = async (username) => {
         setLoading();  
         
-        const GITHUB_API = `https://api.github.com/users/${username}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+        const GITHUB_API = `https://api.github.com/users/${username}?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}`;
         const res = await axios.get(GITHUB_API);
         
         dispatch({
@@ -61,7 +61,7 @@ const GithubState = props => {
     const getUserRepos = async (username) => {
         setLoading();
         
-        const GITHUB_API = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+        const GITHUB_API = `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_CLIENT_SECRET}`;
         const res = await axios.get(GITHUB_API);
         
         dispatch({

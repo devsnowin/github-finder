@@ -1,0 +1,98 @@
+.container {
+  margin: 2em auto;
+}
+
+.btn-back {
+  margin: 0 2em;
+  padding: 0.5em 1em;
+}
+
+.profile-card {
+  width: 60rem;
+  margin: 4em auto 1em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 2px 30px 0 rgba(48, 40, 73, 0.2);
+  padding: 2em 0;
+}
+
+.user {
+  width: 380px;
+  height: auto;
+  padding: 1em;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.user > * {
+  padding: 0.2em 0;
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+}
+
+.image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-content {
+  width: 380px;
+  height: auto;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.profile-content > * {
+  padding: 0.1em 0;
+}
+
+.btn-github {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+}
+
+.badges-card {
+  width: 60rem;
+  margin: 0 auto 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 30px 0 rgba(48, 40, 73, 0.2);
+  padding: 2em 0;
+}
+
+.badges {
+  font-size: 14px;
+  font-weight: 600;
+  color: aliceblue;
+  padding: 0.4em 1em;
+  margin: 0 0.8em;
+  border-radius: 5px;
+}
+
+.followers {
+  background-color: rgb(28, 137, 153);
+}
+
+.following {
+  background-color: rgb(134, 28, 153);
+}
+
+.public-repo {
+  background-color: rgb(109, 153, 28);
+}
+.public-gist {
+  background-color: rgb(172, 28, 83);
+}

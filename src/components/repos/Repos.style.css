@@ -1,0 +1,11 @@
+.repos {
+  border-radius: 5px;
+  box-shadow: 0 2px 30px 0 rgba(48, 40, 73, 0.2);
+  width: 60rem;
+  padding: 0.5em 0;
+  margin: 0 auto 4em;
+}
+
+.repos h1 {
+  padding: 0.5em 2em;
+}

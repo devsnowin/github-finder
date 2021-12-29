@@ -1,0 +1,29 @@
+.search-bar {
+  width: 680px;
+  height: auto;
+  margin: 2em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 5px;
+  box-shadow: 0 2px 30px 0 #12121220;
+  padding: 0 1em;
+}
+
+.form__input {
+  width: 620px;
+  font-size: 20px;
+  padding: 1.5em 0.8em;
+  height: 5vh;
+  border: 0;
+  outline: none;
+}
+
+.form__input::placeholder {
+  color: rgb(78, 82, 107);
+}
+
+.search-bar i {
+  color: rgb(78, 82, 107);
+  cursor: pointer;
+}

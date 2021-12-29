@@ -1,0 +1,25 @@
+.alert {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: aliceblue;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.message {
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.alert__success {
+  background-color: rgb(0, 190, 10);
+}
+
+.alert__danger {
+  background-color: rgb(190, 0, 0);
+}

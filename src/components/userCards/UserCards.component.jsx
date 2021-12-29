@@ -17,7 +17,9 @@ const UserCards = () => {
             </div>
         );
     }
-    else return <></>;
+    else return <>
+        <h1>No users found!</h1>
+    </>;
 }
 
 const loaderStyle = {

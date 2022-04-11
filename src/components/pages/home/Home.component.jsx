@@ -1,12 +1,12 @@
-import React from 'react'
-import SearchBar from '../../searchBar/SearchBar.component'
-import UserCards from '../../userCards/UserCards.component'
+import React from "react";
+import UserCards from "../../userCards/UserCards.component";
+import { SearchBar } from "../../SearchBar/SearchBar.component";
 
 const Home = () => (
-    <>
-        <SearchBar />
-        <UserCards />
-    </>
-)
+  <>
+    <SearchBar />
+    <UserCards />
+  </>
+);
 
 export default Home;
